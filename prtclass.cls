@@ -1,6 +1,6 @@
 % Totally amateur latex template for U12110 thesis poster.
 % Author: Matous Cejnek
-% In case of problems of comments, please do not contact the author.
+% In case of problems or comments, please do not contact the author.
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{prtclass}[2014/08/16 Example class]
@@ -106,24 +106,40 @@
 %%Body of the class, most of the declarations appear here.
 \renewcommand{\maketitle}{%
     % header with logo
-    \noindent\begin{minipage}{0.4\textwidth}
-    \includegraphics[width=1.\textwidth]{figures/logo_FS.jpg}
+    \noindent\begin{minipage}[b]{0.4\textwidth}
+        \ifitisczech
+            \includegraphics[width=1.\textwidth]{figures/logo_FS.pdf}
+        \else
+            \includegraphics[width=1.\textwidth]{figures/logo_FS_en.pdf}
+        \fi
     \end{minipage}%
     \hfill%
-    \begin{minipage}{0.6\textwidth}
+    \begin{minipage}[b]{0.6\textwidth}
     \vspace{11mm}  
     \fontsize{14}{19}
     \textbf{\textcolor{ctu_blue}{
-    \vspace{1mm}
-    \hfill Závěrečné práce na \\
-    \strut\hfill ÚSTAVU PŘÍSTROJOVÉ \\
-    \strut\hfill A ŘÍDICÍ TECHNIKY}}
+        \ifitisczech
+            \vspace{2mm}
+            \hfill Závěrečné práce na \\ 
+            \strut\hfill ÚSTAVU PŘÍSTROJOVÉ \\
+            \strut\hfill A ŘÍDICÍ TECHNIKY  
+        \else
+            \vspace{2mm}
+            \hfill Final works\\ 
+            \strut\hfill DEPARTMENT OF INSTRUMENTATION \\
+            \strut\hfill AND CONTROL ENGINEERING%  
+        \fi
+    }}
     \end{minipage}
     
     \vspace{5mm}  
 
     \noindent\begin{minipage}[t][][b]{0.15\textwidth}
-    Název:
+        \ifitisczech
+            Název:
+        \else
+            Title:
+        \fi
     \end{minipage}%
     \hfill%
     \begin{minipage}[t][][b]{0.85\textwidth}
@@ -138,7 +154,11 @@
     \vspace{5mm}  
 
     \noindent\begin{minipage}[t]{0.15\textwidth}
-        Autor:
+        \ifitisczech
+            Autor:
+        \else
+            Author:
+        \fi
     \end{minipage}%
     \begin{minipage}[t]{0.50\textwidth}
         \textbf{\@author}
@@ -150,7 +170,11 @@
     \vspace{5mm}  
 
     \noindent\begin{minipage}[t]{0.15\textwidth}
-    Školitel:
+    \ifitisczech
+        Školitel:
+    \else
+        Supervisor:
+    \fi
     \end{minipage}%
     \begin{minipage}[t]{0.50\textwidth}
     \@supervisor
@@ -197,7 +221,7 @@
     
     \vspace{15mm}
     
-    \noindent Kontakt: \@address
+    \noindent \@address
 
 
 }
